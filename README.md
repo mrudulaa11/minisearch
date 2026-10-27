@@ -74,24 +74,3 @@ pytest -q
 ## Ideas for improvement
 
 Stemming, a persistent compressed index, dynamic-pruning algorithms such as WAND, evaluation on larger BEIR datasets, and a hybrid with dense retrieval.
-EOF
-
-CPU=$(lscpu | grep 'Model name' | sed 's/.*: *//')
-RAM=$(free -g | awk '/Mem:/ {print $2}')
-sed -i "s|MACHINE_PLACEHOLDER|${CPU}, ${RAM} GB RAM|" README.md
-grep -n "Measured on" README.md     # check the machine line looks right
-
-mkdir -p .github/workflows
-cat > .github/workflows/tests.yml << 'EOF'
-name: tests
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - run: pip install -e . pytest
-      - run: pytest -q
