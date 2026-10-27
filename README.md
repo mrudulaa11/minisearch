@@ -6,7 +6,7 @@ A search engine built from scratch in Python: inverted index, TF-IDF and BM25 ra
 
 ## Results
 
-BEIR SciFact: 5,183 documents, 300 test queries. Measured on MACHINE_PLACEHOLDER, Python 3.12, Ubuntu. Timings vary a few percent between runs.
+BEIR SciFact: 5,183 documents, 300 test queries. Measured on 11th Gen Intel(R) Core(TM) i3-1115G4 @ 3.00GHz, 7 GB RAM, Python 3.12, Ubuntu. Timings vary a few percent between runs.
 
 ### Ranking quality
 
@@ -74,3 +74,9 @@ pytest -q
 ## Ideas for improvement
 
 Stemming, a persistent compressed index, dynamic-pruning algorithms such as WAND, evaluation on larger BEIR datasets, and a hybrid with dense retrieval.
+
+## Data and references
+
+- Dataset: SciFact, as packaged in the BEIR benchmark (Thakur et al., 2021). The data is not included in this repository.
+- SciFact: Wadden et al., "Fact or Fiction: Verifying Scientific Claims" (EMNLP 2020).
+- BM25: Robertson and Zaragoza, "The Probabilistic Relevance Framework: BM25 and Beyond" (2009).
